@@ -1,9 +1,6 @@
 class MoviesController < ApplicationController
   helper_method :hilight
-
-  def movie_params
-    params.require(:movie).permit(:title, :rating, :description, :release_date)
-  end
+  helper_method :chosen_rating?
 
   def show
     id = params[:id] # retrieve movie ID from URI route
