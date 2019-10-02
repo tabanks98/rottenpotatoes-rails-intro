@@ -4,11 +4,9 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-	 %th{:class=> hilightColumn('title')}
-	   %a#title_header{:href=> movies_path(:order => "title")} Movie Title
+	 %th Movie Title
 	 %th Rating
-	 %th{:class=> hilightColumn('release_date')}
-	   %a#release_date_header{:href=> movies_path(:order=>"release_date")} Release Date
+	 %th Release Date
 	 %th More Info
   %tbody
     - @movies.each do |movie|
