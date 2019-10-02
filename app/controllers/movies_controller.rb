@@ -56,4 +56,18 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+  def hilight(column)
+      if(session[:order].to_s == column)
+        return 'hilite'
+      else
+        return nil
+      end
+    end
+
+  def chosen_rating?(rating)
+      chosen_ratings = session[:ratings]
+      return true if chosen_ratings.nil?
+      chosen_ratings.include? rating
+  end
+    
 end
