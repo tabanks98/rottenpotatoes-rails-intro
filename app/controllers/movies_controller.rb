@@ -1,48 +1,17 @@
 class MoviesController < ApplicationController
 
-  def initialize
-          @all_ratings = Movie.all_ratings
-          super
-      end
+  def movie_params
+    params.require(:movie).permit(:title, :rating, :description, :release_date)
+  end
 
-      def show
-          id = params[:id] # retrieve movie ID from URI route
-          @movie = Movie.find(id) # look up movie by unique ID
-          # will render app/views/movies/show.<extension> by default
-      end
+  def show
+    id = params[:id] # retrieve movie ID from URI route
+    @movie = Movie.find(id) # look up movie by unique ID
+    # will render app/views/movies/show.<extension> by default
+  end
 
   def index
-    redirect = false
-
-    if params[:sort]
-      @sorting = params[:sort]
-    elsif session[:sort]
-        @sorting = session[:sort]
-        redirect = true
-    end
-
-    if params[:ratings]
-       @ratings = params[:ratings]
-       elsif session[:ratings]
-        @ratings = session[:ratings]
-        redirect = true
-       else
-         @all_ratings.each do |rat|
-         (@ratings ||= { })[rat] = 1
-       end
-         redirect = true
-     end
-     if redirect
-        redirect_to movies_path(:sort => @sorting, :ratings => @ratings)
-     end
-     Movie.find(:all, :order => @sorting ? @sorting : :id).each do |mv|
-       if @ratings.keys.include? mv[:rating]
-         (@movies ||= [ ]) << mv
-       end
-    end
-
-    session[:sort]    = @sorting
-    session[:ratings] = @ratings
+    @movies = Movie.all
   end
 
   def new
