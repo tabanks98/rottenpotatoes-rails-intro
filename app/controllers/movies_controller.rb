@@ -56,7 +56,7 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
-  def hilight(column)
+  def hilightColumn(column)
       if(session[:order].to_s == column)
         return 'hilite'
       else
