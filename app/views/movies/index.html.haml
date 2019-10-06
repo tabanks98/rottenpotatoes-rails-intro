@@ -6,7 +6,7 @@
     %tr
 	 %th{:class => @title_header}=link_to "Movie Title", movie_path(:sort_val => 'title'), :id => ''
 	 %th Rating
-	 %th id=release_date_header =link_to "Release Day", movie_path(:release_date)
+	 %th{:class => @release_date_header}=link_to "Release Date", movie_path(:sort_val => 'release_date'), :id => ''
 	 %th More Info
   %tbody
     - @movies.each do |movie|

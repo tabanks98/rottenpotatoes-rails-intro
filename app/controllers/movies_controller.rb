@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
       @sort_val = params[:sort_val]
         
       @title_header = 'hilite'
-      
+      @release_date_header = 'hilite'
       
   end
 
@@ -47,20 +47,6 @@ class MoviesController < ApplicationController
     @movie.destroy
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
-  end
-
-  def hilightColumn(column)
-      if(session[:order].to_s == column)
-        return 'hilite'
-      else
-        return nil
-      end
-    end
-
-  def chosen_rating?(rating)
-      chosen_ratings = session[:ratings]
-      return true if chosen_ratings.nil?
-      chosen_ratings.include? rating
   end
     
 end
