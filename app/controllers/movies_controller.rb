@@ -19,10 +19,10 @@ class MoviesController < ApplicationController
       @title_header = 'hilite'
       @release_date_header = 'hilite'
       
-      if params.key?(:sort_by)
-      			session[:sort_by] = params[:sort_by]
-      		elsif session.key?(:sort_by)
-      			params[:sort_by] = session[:sort_by]
+      if params.key?(:sort_val)
+      			session[:sort_val] = params[:sort_val]
+      		elsif session.key?(:sort_val)
+      			params[:sort_val] = session[:sort_val]
       			redirect_to movies_path(params) and return
       		end
   end
