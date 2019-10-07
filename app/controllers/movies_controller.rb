@@ -19,12 +19,13 @@ class MoviesController < ApplicationController
       @title_header = 'hilite'
       @release_date_header = 'hilite'
       
-      if params.key?(:sort_val)
-      			session[:sort_val] = params[:sort_val]
-      		elsif session.key?(:sort_val)
-      			params[:sort_val] = session[:sort_val]
-      			redirect_to movies_path(params) and return
-      		end
+      @movie = Movie.sort(:sort_val)
+      
+      
+      		
+      
+     
+      end
   end
 
   def new
