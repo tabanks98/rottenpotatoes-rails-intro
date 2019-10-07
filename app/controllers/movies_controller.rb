@@ -19,7 +19,6 @@ class MoviesController < ApplicationController
       @title_header = 'hilite'
       @release_date_header = 'hilite'
       
-      @movie = Movie.sort(:sort_val)
       
       
       		
