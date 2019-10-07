@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
   end
-=begin
+
   def index
       @all_ratings = ['G','PG','PG-13','R']
       
@@ -27,7 +27,7 @@ class MoviesController < ApplicationController
      
       end
   end
-=end
+
   def new
     # default: render 'new' template
   end
