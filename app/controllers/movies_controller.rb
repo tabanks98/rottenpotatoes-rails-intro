@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    
     @all_ratings = ['G','PG','PG-13','R']
       
     @sort_val = params[:sort_val]
@@ -20,9 +20,11 @@ class MoviesController < ApplicationController
     @title_header = 'hilite'
     @release_date_header = 'hilite'
       
-      
-      
-      		
+    if (sort_val != nil)
+      @movies = Movie.order(sort_val)
+    elsif 
+      @movies = Movie.all
+    end
       
      
     
