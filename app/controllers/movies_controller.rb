@@ -30,6 +30,7 @@ class MoviesController < ApplicationController
       @sort_val = session[:sort_val]
     else
       @sort_val = params[:sort_val]
+      session[:sort_val] = params[:sort_val]
     end
     
     if @sort_val == 'title'
