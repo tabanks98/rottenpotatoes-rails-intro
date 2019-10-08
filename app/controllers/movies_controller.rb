@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
       
     @sort_val = params[:sort_val]
         
-    if params[:ratings] == nil
+    if params[:ratings] != nil
       @checked_ratings = params[:ratings]
     else
       @checked_ratings = @all_ratings
