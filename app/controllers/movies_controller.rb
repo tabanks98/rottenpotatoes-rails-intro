@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
-    @all_ratings = ['G','PG','PG-13','R']
+    @all_ratings = Movie.all_ratings
       
     @sort_val = params[:sort_val]
         
