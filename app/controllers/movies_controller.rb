@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
     elsif @sort_val == :release_date
       @release_date_header = 'hilite'
     end
-      
+    @movies = Movie.order(sort_by)
 
       		
       
