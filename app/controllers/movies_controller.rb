@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    
     @all_ratings = Movie.all_ratings 
       
     @sort_val = params[:sort_val]
@@ -29,7 +29,9 @@ class MoviesController < ApplicationController
       @movies = Movie.order(:title).where(rating: @checked_ratings)
     elsif @sort_val == 'release_date'
       @release_date_header = 'hilite'
-      @movies = Movie.order(:release_date)
+      @movies = Movie.order(:release_date).where(rating: @checked_ratings)
+    else
+      @movies = Movie.where(rating: @checked_ratings)
     end
     
     
