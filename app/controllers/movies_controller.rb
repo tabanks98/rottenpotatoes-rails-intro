@@ -23,13 +23,15 @@ class MoviesController < ApplicationController
       @checked_ratings = @all_ratings
     end
     
+    
     if @sort_val == 'title'
       @title_header = 'hilite'
-      @movies = Movie.order(:title)
+      @movies = Movie.order(:title).where(rating: @checked_ratings)
     elsif @sort_val == 'release_date'
       @release_date_header = 'hilite'
       @movies = Movie.order(:release_date)
     end
+    
     
     
       		
