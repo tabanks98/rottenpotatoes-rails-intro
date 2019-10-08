@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
       @checked_ratings = @all_ratings
     end
     
-    if params[:sort_val] == nil && session[sort_val] != nil
+    if params[:sort_val] == nil && session[:sort_val] != nil
       @sort_val = session[:sort_val]
     else
       @sort_val = params[:sort_val]
