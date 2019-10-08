@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
     
     @all_ratings = Movie.all_ratings 
       
-    @sort_val = params[:sort_val]
+    
     
     if params[:ratings] != nil
       @checked_ratings = params[:ratings].keys
@@ -24,6 +24,12 @@ class MoviesController < ApplicationController
       @checked_ratings = session[:ratings].keys
     else
       @checked_ratings = @all_ratings
+    end
+    
+    if params[:sort_val] == nil && session[sort_val] != nil
+      @sort_val = session[:sort_val]
+    else
+      @sort_val = params[:sort_val]
     end
     
     if @sort_val == 'title'
