@@ -17,7 +17,10 @@ class MoviesController < ApplicationController
       
     @sort_val = params[:sort_val]
         
-    @title_header = 'hilite'
+    if @sort_val == :title
+      @title_header = 'hilite'
+    end
+    
     @release_date_header = 'hilite'
       
 
