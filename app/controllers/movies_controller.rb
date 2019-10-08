@@ -17,7 +17,11 @@ class MoviesController < ApplicationController
       
     @sort_val = params[:sort_val]
         
-    @checked_ratings = params[:ratings]
+    if params[:ratings] == nil
+      @checked_ratings = params[:ratings]
+    else
+      @checked_ratings = @all_ratings
+    end
     
     if @sort_val == 'title'
       @title_header = 'hilite'
