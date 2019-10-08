@@ -19,9 +19,8 @@ class MoviesController < ApplicationController
         
     if @sort_val == :title
       @title_header = 'hilite'
-    end
-    
-    @release_date_header = 'hilite'
+    elsif @sort_val == :release_date
+      @release_date_header = 'hilite'
       
 
       		
