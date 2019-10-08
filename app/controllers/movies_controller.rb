@@ -17,6 +17,8 @@ class MoviesController < ApplicationController
       
     @sort_val = params[:sort_val]
         
+    @checked_ratings = :ratings.keys()
+    
     if @sort_val == 'title'
       @title_header = 'hilite'
       @movies = Movie.order(:title)
