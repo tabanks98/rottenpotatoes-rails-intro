@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
     @sort_val = params[:sort_val]
     
     if params[:ratings] == nil && session[:ratings] == nil
-      session[:ratings] = @all_ratings
+      session[:ratings].keys = @all_ratings
     end
     
     if params[:ratings] != nil
