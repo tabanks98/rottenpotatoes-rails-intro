@@ -26,7 +26,6 @@ class MoviesController < ApplicationController
       @checked_ratings = @all_ratings
     end
     
-    
     if @sort_val == 'title'
       @title_header = 'hilite'
       @movies = Movie.order(:title).where(rating: @checked_ratings)
