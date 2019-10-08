@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
-    @all_ratings = Movie.all_ratings
+    @all_ratings = Movie.all_ratings 
       
     @sort_val = params[:sort_val]
         
@@ -31,7 +31,7 @@ class MoviesController < ApplicationController
       @movies = Movie.order(:release_date)
     end
     
-
+    
       		
       
      
